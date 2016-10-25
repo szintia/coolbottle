@@ -6,13 +6,16 @@ public class Customer {
 	
 	private String email;
 	private String name;
+	// TODO hashing password
+	private String password;
 	private String mobileNumber;
 	private BigDecimal accountBalance;
 	private boolean loyalty;
 	
-	public Customer(String email, String name, String mobileNumber, BigDecimal accountBalance, boolean loyalty) {
+	public Customer(String email, String name, String password, String mobileNumber, BigDecimal accountBalance, boolean loyalty) {
 		this.email = email;
 		this.name = name;
+		this.password = password;
 		this.mobileNumber = mobileNumber;
 		this.accountBalance = accountBalance;
 		this.loyalty = loyalty;
@@ -24,6 +27,10 @@ public class Customer {
 	
 	public String getName() {
 		return name;
+	}
+	
+	public String getPassword() {
+		return password;
 	}
 	
 	public String getMobileNumber() {
