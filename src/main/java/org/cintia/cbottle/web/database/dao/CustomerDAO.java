@@ -21,7 +21,9 @@ public class CustomerDAO implements DataAccess<Customer> {
 	
 	@Override
 	public void insert(Customer customer) {
-		
+		String insertCustomer = CustomerQuery.INSERT.sql();
+		Object[] paramValues = CustomerQuery.mapInsertParams(customer);
+		jdbcTemplate.update(insertCustomer, paramValues);
 	}
 
 	@Override
@@ -37,6 +39,7 @@ public class CustomerDAO implements DataAccess<Customer> {
 	
 	@Override
 	public List<Customer> getAll() {
-		return null;
+		String getCustomers = CustomerQuery.SELECT_ALL.sql();
+		return jdbcTemplate.query(getCustomers, customerRowMapper);
 	}
 }
