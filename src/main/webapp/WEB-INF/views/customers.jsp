@@ -1,3 +1,5 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@page contentType="text/html;charset=UTF-8"%>
 <html>
 <head></head>
 <header></header>
@@ -14,14 +16,16 @@
 					<th class="header">Balance</th>
 					<th class="header">Loyalty</th>
 				</tr>
-				<tr class="row-container">
-					<td class="data-row"></td>
-					<td class="data-row"></td>
-					<td class="data-row"></td>
-					<td class="data-row"></td>
-					<td class="data-row"></td>
-					<td class="data-row"></td>
-				</tr>
+				<c:forEach var="customer" items="${customers}">
+					<tr class="row-container">
+						<td class="data-row"><c:out value="${customer.email}" /></td>
+						<td class="data-row"><c:out value="${customer.password}" /></td>
+						<td class="data-row"><c:out value="${customer.customer_name}" /></td>
+						<td class="data-row"><c:out value="${customer.mobile}" /></td>
+						<td class="data-row"><c:out value="${customer.balance}" /></td>
+						<td class="data-row"><c:out value="${customer.loyalty}" /></td>
+					</tr>
+				</c:forEach>
 			</thead>
 		</table>
 	</div>
