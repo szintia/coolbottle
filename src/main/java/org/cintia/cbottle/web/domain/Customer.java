@@ -12,6 +12,10 @@ public class Customer {
 	private BigDecimal accountBalance;
 	private boolean loyalty;
 	
+	public Customer() {
+		
+	}
+	
 	public Customer(String email, String name, String password, String mobileNumber, BigDecimal accountBalance, boolean loyalty) {
 		this.email = email;
 		this.name = name;
@@ -25,12 +29,24 @@ public class Customer {
 		return email;
 	}
 	
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	
 	public String getName() {
 		return name;
 	}
 	
+	public void setName(String name) {
+		this.name = name;
+	}
+	
 	public String getPassword() {
 		return password;
+	}
+	
+	public void setPassword(String password) {
+		this.password = password;
 	}
 	
 	public String getMobileNumber() {
@@ -43,5 +59,17 @@ public class Customer {
 	
 	public boolean isLoyalty() {
 		return loyalty;
+	}
+
+	public void setMobileNumber(String mobileNumber) {
+		this.mobileNumber = mobileNumber;
+	}
+
+	public void setAccountBalance(BigDecimal accountBalance) {
+		this.accountBalance = accountBalance;
+	}
+
+	public void setLoyalty(boolean loyalty) {
+		this.loyalty = loyalty;
 	}
 }
