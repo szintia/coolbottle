@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans-4.0.xsd">
+
+	<bean id="oracleDataSource" class="oracle.jdbc.pool.OracleConnectionPoolDataSource">
+		<property name="URL" value="jdbc:oracle:thin:@localhost:1521:XE" />
+		<property name="user" value="cintia" />
+		<property name="password" value="system" />
+	</bean>
+	
+	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate" >
+	    <property name="dataSource" ref="oracleDataSource" />
+	</bean>
+
+</beans>
