@@ -5,7 +5,9 @@ import java.sql.SQLException;
 
 import org.cintia.cbottle.web.domain.Customer;
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.stereotype.Component;
 
+@Component
 public class CustomerRowMapper implements RowMapper<Customer>{
 
 	@Override
