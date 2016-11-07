@@ -20,9 +20,9 @@
 					<tr class="row-container">
 						<td class="data-row"><c:out value="${customer.email}" /></td>
 						<td class="data-row"><c:out value="${customer.password}" /></td>
-						<td class="data-row"><c:out value="${customer.customer_name}" /></td>
-						<td class="data-row"><c:out value="${customer.mobile}" /></td>
-						<td class="data-row"><c:out value="${customer.balance}" /></td>
+						<td class="data-row"><c:out value="${customer.name}" /></td>
+						<td class="data-row"><c:out value="${customer.mobileNumber}" /></td>
+						<td class="data-row"><c:out value="${customer.accountBalance}" /></td>
 						<td class="data-row"><c:out value="${customer.loyalty}" /></td>
 					</tr>
 				</c:forEach>
