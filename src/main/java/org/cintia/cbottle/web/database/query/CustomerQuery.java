@@ -8,7 +8,8 @@ public enum CustomerQuery implements Query {
 	
 	INSERT("INSERT INTO customer (email, password, customer_name, mobile, balance, loyalty) VALUES (?, ?, ?, ?, ?, ?)"),
 	SELECT_BY_EMAIL("SELECT * FROM customer WHERE email = ? "),
-	SELECT_ALL("SELECT * FROM customer");
+	SELECT_ALL("SELECT * FROM customer"),
+	DELETE("DELETE FROM customer WHERE email = ?");
 	
 	private String query;
 	
