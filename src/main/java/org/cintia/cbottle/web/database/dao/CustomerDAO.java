@@ -28,6 +28,8 @@ public class CustomerDAO implements DataAccess<Customer> {
 
 	@Override
 	public void delete(String id) {
+		String deleteCustomer = CustomerQuery.DELETE.sql();
+		jdbcTemplate.update(deleteCustomer, id);
 		
 	}
 
