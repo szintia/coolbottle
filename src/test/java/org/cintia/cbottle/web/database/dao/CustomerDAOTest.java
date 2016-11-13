@@ -57,4 +57,10 @@ public class CustomerDAOTest {
 		//then
 		Mockito.verify(jdbcTemplate).update(CustomerQuery.INSERT.sql(), mockInsertParams);
 	}
+	
+	@Test
+	public void testDelete() {
+		customerDAO.delete(EMAIL);
+		Mockito.verify(jdbcTemplate).update(CustomerQuery.DELETE.sql(), EMAIL);
+	}
 }

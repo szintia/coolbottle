@@ -34,9 +34,9 @@ public class CustomerDAO implements DataAccess<Customer> {
 	}
 
 	@Override
-	public Customer findById(String id) {
+	public Customer findById(String email) {
 		String findCustomerById = CustomerQuery.SELECT_BY_EMAIL.sql();
-		return jdbcTemplate.queryForObject(findCustomerById, customerRowMapper, id);
+		return jdbcTemplate.queryForObject(findCustomerById, customerRowMapper, email);
 	}
 	
 	@Override
