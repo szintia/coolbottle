@@ -1,7 +1,6 @@
 package org.cintia.cbottle.web.database.dao;
 
 import java.math.BigDecimal;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
