@@ -1,9 +1,13 @@
 package org.cintia.cbottle.web.database.dao;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 import org.cintia.cbottle.web.database.query.CustomerQuery;
 import org.cintia.cbottle.web.domain.Customer;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -28,6 +32,8 @@ public class CustomerDAOTest {
 	private static final String MOBILE_NUMBER = "333 666 9988";
 	private static final BigDecimal ACCOUNT_BALANCE = BigDecimal.ZERO;
 	private static final boolean LOYALTY = false;
+	private static final Customer CUSTOMER = new Customer(EMAIL, NAME, PASSWORD, MOBILE_NUMBER, ACCOUNT_BALANCE, LOYALTY);
+	private static final List<Customer> CUSTOMERS = Arrays.asList(CUSTOMER);
 	
 	@Mock
 	private JdbcTemplate jdbcTemplate;
@@ -47,12 +53,11 @@ public class CustomerDAOTest {
 	public void testInsert() {
 		//given
 		PowerMockito.mockStatic(CustomerQuery.class);
-		Customer customer = new Customer(EMAIL, NAME, PASSWORD, MOBILE_NUMBER, ACCOUNT_BALANCE , LOYALTY);
 		Object[] mockInsertParams = new Object[0];
-		BDDMockito.given(CustomerQuery.mapInsertParams(customer)).willReturn(mockInsertParams);
+		BDDMockito.given(CustomerQuery.mapInsertParams(CUSTOMER)).willReturn(mockInsertParams);
 		
 		//when
-		customerDAO.insert(customer);
+		customerDAO.insert(CUSTOMER);
 		
 		//then
 		Mockito.verify(jdbcTemplate).update(CustomerQuery.INSERT.sql(), mockInsertParams);
@@ -62,5 +67,19 @@ public class CustomerDAOTest {
 	public void testDelete() {
 		customerDAO.delete(EMAIL);
 		Mockito.verify(jdbcTemplate).update(CustomerQuery.DELETE.sql(), EMAIL);
+	}
+	
+	@Test
+	public void testFindById() {
+		BDDMockito.given(jdbcTemplate.queryForObject(CustomerQuery.SELECT_BY_EMAIL.sql(), customerRowMapper, EMAIL)).willReturn(CUSTOMER);
+		
+		Assert.assertEquals(customerDAO.findById(EMAIL), CUSTOMER);
+	}
+	
+	@Test
+	public void testGetAll() {
+		BDDMockito.given(jdbcTemplate.query(CustomerQuery.SELECT_ALL.sql(), customerRowMapper)).willReturn(CUSTOMERS);
+		
+		Assert.assertEquals(customerDAO.getAll(), CUSTOMERS);
 	}
 }
