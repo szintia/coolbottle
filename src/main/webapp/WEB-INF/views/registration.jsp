@@ -1,25 +1,41 @@
-<html>
-<head>
-</head>
-<div class="login-container">
-	<h1>Cool Bottle</h1>
-		<h3>Registration</h3>
-		<form action="">
-			<div class="container">
-				<label><b>Email</b></label>
-	  			<input type="text" placeholder="Enter Email" name="email" required>
-	  			
-	  			<label><b>Password</b></label>
-	  			<input type="password" placeholder="Enter Password" name="password" required>
-	  			
-	  			<label><b>User name</b></label>
-	  			<input type="text" placeholder="Enter User name" name="name" required>
-	  			
-	  			<label><b>Phone Number</b></label>
-	  			<input type="text" placeholder="Enter Phone number" name="phone" required>
-	  			
-	  			<button type="submit">Register</button>
-	  		</div>
-		</form>
-</div>
-</html>
+<%@page contentType="text/html;charset=UTF-8"%>
+<%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
+
+<t:page>
+	<jsp:body>
+		<div class="container">
+			<h2>Registration</h2>
+			<form class="form-horizontal">
+				<div class="form-group">
+					<div class="col-sm-offset-2 col-sm-3">
+						<label for="email">Email</label>
+			  			<input type="text" class="form-control" id="email" placeholder="Enter email">
+		  			</div>
+		  		</div>
+		  		<div class="form-group">
+		  			<div class="col-sm-offset-2 col-sm-3">
+			  			<label for="passw">Password</label>
+			  			<input type="password" class="form-control" id="passw" placeholder="Enter password">
+		  			</div>
+		  		</div>
+		  		<div class="form-group">
+		  			<div class="col-sm-offset-2 col-sm-3">
+			  			<label for="name">Name</label>
+			  			<input type="text" class="form-control" id="name" placeholder="Enter name">
+		  			</div>
+		  		</div>
+		  		<div class="form-group">
+		  			<div class="col-sm-offset-2 col-sm-3">
+			  			<label for="phone">Phone Number</label>
+			  			<input type="text" class="form-control" id="phone" placeholder="Enter phone number">
+		  			</div>
+		  		</div>
+		  		<div class="form-group">        
+      				<div class="col-sm-offset-2 col-sm-3">
+        				<button type="submit" class="btn btn-default">Submit</button>
+      				</div>
+		  		</div>
+			</form>
+		</div>
+	</jsp:body>
+</t:page>
