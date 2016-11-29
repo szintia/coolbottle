@@ -20,7 +20,7 @@ public class CustomerController {
 	private static final String CUSTOMER_MAPPING = "/customers";
 	private static final String REGISTER_FORM_VIEW = "registration";
 	private static final String REGISTER_FORM_MAPPING = "registrationForm";
-	private static final String REGISTER_MAPPING = "registerCustomer";
+	private static final String REGISTER_MAPPING = "/registerCustomer";
 	private static final String DELETE_CUSTOMER_MAPPING = "/deleteCustomer";
 	private static final String CUSTOMER_VIEW = "/home";
 	
@@ -40,7 +40,7 @@ public class CustomerController {
 		return REGISTER_FORM_VIEW;
 	}
 	
-	@RequestMapping(value = REGISTER_MAPPING)
+	@RequestMapping(value = REGISTER_MAPPING, method = RequestMethod.POST)
 	public String registerCustomer(@ModelAttribute(value = "customer") @Valid Customer customer) {
 		customerDAO.insert(customer);
 		return CUSTOMER_VIEW;
