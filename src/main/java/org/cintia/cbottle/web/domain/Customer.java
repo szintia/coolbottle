@@ -10,13 +10,14 @@ public class Customer {
 	private String password;
 	private String mobileNumber;
 	private BigDecimal accountBalance;
-	private boolean loyalty;
+	//use 'I' or 'N'
+	private String loyalty;
 	
 	public Customer() {
 		
 	}
 	
-	public Customer(String email, String name, String password, String mobileNumber, BigDecimal accountBalance, boolean loyalty) {
+	public Customer(String email, String name, String password, String mobileNumber, BigDecimal accountBalance, String loyalty) {
 		this.email = email;
 		this.name = name;
 		this.password = password;
@@ -57,7 +58,7 @@ public class Customer {
 		return accountBalance;
 	}
 	
-	public boolean isLoyalty() {
+	public String isLoyalty() {
 		return loyalty;
 	}
 
@@ -69,7 +70,8 @@ public class Customer {
 		this.accountBalance = accountBalance;
 	}
 
-	public void setLoyalty(boolean loyalty) {
+	public void setLoyalty(String loyalty) {
 		this.loyalty = loyalty;
 	}
+
 }
