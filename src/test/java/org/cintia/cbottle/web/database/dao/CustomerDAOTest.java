@@ -30,7 +30,7 @@ public class CustomerDAOTest {
 	private static final String PASSWORD = "password";
 	private static final String MOBILE_NUMBER = "333 666 9988";
 	private static final BigDecimal ACCOUNT_BALANCE = BigDecimal.ZERO;
-	private static final boolean LOYALTY = false;
+	private static final String LOYALTY = "N";
 	private static final Customer CUSTOMER = new Customer(EMAIL, NAME, PASSWORD, MOBILE_NUMBER, ACCOUNT_BALANCE, LOYALTY);
 	private static final List<Customer> CUSTOMERS = Arrays.asList(CUSTOMER);
 	
