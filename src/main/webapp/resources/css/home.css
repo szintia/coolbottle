@@ -1,0 +1,14 @@
+.full {
+	background: url(../img/bottle.jpg) no-repeat center center fixed; 
+  	-webkit-background-size: cover;
+  	-moz-background-size: cover;
+  	-o-background-size: cover;
+	background-size: cover;
+}
+
+
+
+.navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form {
+    background-color: transparent;
+    border-color: transparent;
+}
