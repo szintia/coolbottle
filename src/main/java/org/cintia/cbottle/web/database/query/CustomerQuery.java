@@ -1,7 +1,5 @@
 package org.cintia.cbottle.web.database.query;
 
-import java.math.BigDecimal;
-
 import org.cintia.cbottle.web.domain.Customer;
 
 public enum CustomerQuery implements Query {
@@ -22,12 +20,12 @@ public enum CustomerQuery implements Query {
 		return query;
 	}
 	
-	private static BigDecimal accountBalance = BigDecimal.ZERO;
-	private static boolean loyalty = false;
+	//private static BigDecimal accountBalance = BigDecimal.ZERO;
+	private static String loyalty = "N";
 	
 	// TODO hashing password using Spring Security, use this one: BCryptPasswordEncoder
 	public static Object[] mapInsertParams(Customer customer) {
-		Object[] params = {customer.getEmail(), customer.getName(), customer.getMobileNumber(), accountBalance, loyalty};
+		Object[] params = {customer.getEmail(), customer.getPassword(), customer.getName(), customer.getMobileNumber(), customer.getAccountBalance(), loyalty};
 		return params;
 	}
 }
