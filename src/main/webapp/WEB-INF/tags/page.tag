@@ -3,9 +3,10 @@
 
 <%@attribute name="title"%>
 
-<html>
+<html class="full">
 <head>
 	<meta charset="utf-8">
+	<link href="/cbottle/resources/css/home.css" rel="stylesheet" type="text/css">
 	<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
 	<title>Cool Bottle</title>
     
