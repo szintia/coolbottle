@@ -24,7 +24,7 @@
 		      </ul>
 		      <ul class="nav navbar-nav navbar-right">
 		        <li><a href="/cbottle/registrationForm"><span class="glyphicon glyphicon-user"></span> Register</a></li>
-		        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+		        <li><a href="/cbottle/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
 		      </ul>
 		    </div>
 		  </div>
