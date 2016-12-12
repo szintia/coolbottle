@@ -23,6 +23,8 @@ public class CustomerController {
 	private static final String REGISTER_MAPPING = "/registerCustomer";
 	private static final String DELETE_CUSTOMER_MAPPING = "/deleteCustomer";
 	private static final String CUSTOMER_VIEW = "/home";
+	private static final String ADMIN_HOME_MAPPING = "/admin/home";
+	private static final String ADMIN_HOME_VIEW = "admin/home";
 	
 	@Autowired
 	CustomerDAO customerDAO;
@@ -33,6 +35,11 @@ public class CustomerController {
 		List<Customer> customers = customerDAO.getAll();
 		mv.addObject("customers", customers);
 		return mv;
+	}
+	
+	@RequestMapping(value = ADMIN_HOME_MAPPING, method = RequestMethod.GET)
+	public String getAdminHome() {
+		return ADMIN_HOME_VIEW;
 	}
 	
 	@RequestMapping(value = REGISTER_FORM_MAPPING, method = RequestMethod.GET)
