@@ -227,3 +227,12 @@ CREATE TABLE ROLE
   )
   ON DELETE CASCADE ENABLE;
 
+/*Trigger after inserting into customer table
+   *Insert into role table with email + default role value*/
+  
+  CREATE TRIGGER set_role_after_insert_user
+  AFTER INSERT ON customer FOR EACH ROW
+  BEGIN
+  INSERT INTO role VALUES (:new.email, 'ROLE_USER');
+  END;
+  /
