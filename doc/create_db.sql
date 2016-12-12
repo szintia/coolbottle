@@ -200,7 +200,39 @@ REFERENCES PRODUCT
 )
 ON DELETE CASCADE ENABLE;
 
+/*Create ROLE table*/
 
+CREATE TABLE ROLE
+(
+  EMAIL VARCHAR2(50) NOT NULL
+  , ROLE VARCHAR2(10) NOT NULL
 
+  , CONSTRAINT ROLE_PK PRIMARY KEY
+    (
+      EMAIL
+    )
+    ENABLE
+  );
+  
+  /*Set foreign keys in ROLE table*/
+  
+     ALTER TABLE ROLE
+  ADD CONSTRAINT EMAIL_FK_ROLE FOREIGN KEY
+  (
+    EMAIL
+  )
+  REFERENCES CUSTOMER
+  (
+    EMAIL
+  )
+  ON DELETE CASCADE ENABLE;
 
-
+/*Trigger after inserting into customer table
+   *Insert into role table with email + default role value*/
+  
+  CREATE TRIGGER set_role_after_insert_user
+  AFTER INSERT ON customer FOR EACH ROW
+  BEGIN
+  INSERT INTO role VALUES (:new.email, 'ROLE_USER');
+  END;
+  /
