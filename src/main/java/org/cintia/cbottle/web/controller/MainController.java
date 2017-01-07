@@ -15,6 +15,8 @@ public class MainController {
 	private static final String HOME_MAPPING = "/home";
 	private static final String HOME_VIEW = "home";
 	private static final String ROOT_MAPPING = "/";
+	private static final String ABOUT_MAPPING = "/about";
+	private static final String ABOUT_VIEW = "about";
 	
 	@RequestMapping(value = HOME_MAPPING, method = RequestMethod.GET)
 	public String getHomePage(Model model, HttpServletRequest request) {
@@ -28,5 +30,10 @@ public class MainController {
 	@RequestMapping(value = ROOT_MAPPING, method = RequestMethod.GET)
 	public String root() {
 		return HOME_VIEW; 
+	}
+	
+	@RequestMapping(value = ABOUT_MAPPING, method = RequestMethod.GET)
+	public String about() {
+		return ABOUT_VIEW;
 	}
 }
