@@ -12,21 +12,24 @@
 	
 		<intercept-url pattern="/admin**" access="hasRole('ROLE_ADMIN')"/>
 		<intercept-url pattern="/admin/**" access="hasRole('ROLE_ADMIN')"/>
+		<access-denied-handler error-page="/403" />
 		
 		<form-login login-page="/login" 
 			default-target-url="/roleIndex" 
 			username-parameter="username"
 			password-parameter="password"
+			authentication-failure-url="/login?error" 
 		/>
+		<logout logout-success-url="/login?logout" />
+		
+		<csrf />
 	</http>
 
 	<authentication-manager>
 		<authentication-provider>
-			<jdbc-user-service 
-				data-source-ref="securityDataSource" 
-				users-by-username-query="SELECT email AS username, password, 'true' as enabled FROM customer WHERE email=?"
-				authorities-by-username-query="SELECT email AS username, role FROM role WHERE email=?"
-			/>
+			<user-service>
+			<user name="admin@admin.com" password="admin" authorities="ROLE_ADMIN" />
+		  </user-service>
 		</authentication-provider>
 	</authentication-manager>
 	

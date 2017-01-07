@@ -18,6 +18,16 @@
 		    </div>
 		    <div class="collapse navbar-collapse" id="myNavbar">
 		      <ul class="nav navbar-nav">
+		      	<c:choose>
+				<c:when test="${not empty name}">
+					<li><a class="home"> <span>Hello <c:out value="${name}" />!
+						</span></a></li>
+				</c:when>
+				<c:otherwise>
+					<li><a class="home" href="/cbottle/login"> <span>Login</span>
+					</a></li>
+				</c:otherwise>
+				</c:choose>
 		        <li class="active"><a href="/cbottle/home">Home</a></li>
 		        <li><a href="#">Page 2</a></li>
 		        <li><a href="#">Page 3</a></li>
