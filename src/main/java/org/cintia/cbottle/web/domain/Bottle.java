@@ -35,6 +35,10 @@ public class Bottle {
 		return productName;
 	}
 	
+	public String getDescription() {
+		return description;
+	}
+
 	public BigDecimal getPrice() {
 		return price;
 	}
