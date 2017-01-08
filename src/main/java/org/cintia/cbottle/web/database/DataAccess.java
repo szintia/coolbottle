@@ -2,6 +2,8 @@ package org.cintia.cbottle.web.database;
 
 import java.util.List;
 
+import org.cintia.cbottle.web.database.query.Query;
+
 public interface DataAccess<T> {
 	
 	/**
@@ -32,4 +34,13 @@ public interface DataAccess<T> {
 	 * @return A {@link List} of the existing data in the database of type {@link T}.
 	 */
 	List<T> getAll();
+	
+	/**
+	 * Searches in the table of the data executing the custom query.
+	 * 
+	 * @param sqlQuery Selects statement with the values missing and replaced by question marks.
+	 * @param paramValues The values of the parameters marked by question marks.
+	 * @return The data found running the query.
+	 */
+	List<T> query(Query sqlQuery, Object... paramValues);
 }
