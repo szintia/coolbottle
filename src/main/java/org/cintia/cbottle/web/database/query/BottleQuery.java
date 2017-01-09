@@ -24,7 +24,6 @@ public enum BottleQuery implements Query {
 	}
 	
 	public static Object[] mapInsertParams(Bottle bottle) {
-		Date date = new Date();
 		String sqlDate = DateFormat.getInstance().format(date).toString();
 		Object[] valueParams = {bottle.getProductId(), bottle.getCategoryId(), bottle.getDescription(), bottle.getPrice(), bottle.getAmount(), sqlDate};
 		return valueParams;
