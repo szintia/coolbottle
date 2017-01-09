@@ -42,13 +42,12 @@ public class CustomerDAO implements DataAccess<Customer> {
 	
 	@Override
 	public List<Customer> getAll() {
-		String getCustomers = CustomerQuery.SELECT_ALL.sql();
-		return jdbcTemplate.query(getCustomers, customerRowMapper);
+		return query(CustomerQuery.SELECT_ALL);
 	}
 
 	@Override
 	public List<Customer> query(Query query, Object... paramValues) {
-		String sql = 
-		return null;
+		String sql = query.sql();
+		return jdbcTemplate.query(sql, customerRowMapper, paramValues);
 	}
 }
