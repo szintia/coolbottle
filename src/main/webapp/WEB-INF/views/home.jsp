@@ -32,6 +32,24 @@
 		        <li><a href="#">Page 2</a></li>
 		        <li><a href="cbottle/about">About</a></li>
 		      </ul>
+		      <div id="container">
+				<c:forEach var="bottle" items="${bottle}">
+					<div id="${bottle.productId}" class="bottleContainer">
+						<div>
+							<c:out value="${bottle.productName}" />
+						</div>
+						<div>
+							<c:out value="${bottle.description}" />
+						</div>
+						<div>
+							<c:out value="${bottle.price}" />
+						</div>
+						<div>
+							<c:out value="${bottle.amount}" />
+						</div>
+					</div>
+				</c:forEach>
+			  </div>
 		      <ul class="nav navbar-nav navbar-right">
 		        <li><a href="/cbottle/registrationForm"><span class="glyphicon glyphicon-user"></span> Register</a></li>
 		        <li><a href="/cbottle/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
