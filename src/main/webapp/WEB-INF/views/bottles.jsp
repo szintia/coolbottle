@@ -18,37 +18,24 @@
 		    </div>
 		    <div class="collapse navbar-collapse" id="myNavbar">
 		      <ul class="nav navbar-nav">
-		      	<c:choose>
-				<c:when test="${not empty name}">
-					<li><a class="home"> <span>Hello <c:out value="${name}" />!
-						</span></a></li>
-				</c:when>
-				<c:otherwise>
-					<li><a class="home" href="/cbottle/login"> <span>Login</span>
-					</a></li>
-				</c:otherwise>
-				</c:choose>
 		        <li class="active"><a href="/cbottle/home">Home</a></li>
 		        <li><a href="#">Page 2</a></li>
 		        <li><a href="cbottle/about">About</a></li>
 		      </ul>
 		      <div id="container">
-				<c:forEach var="bottle" items="${bottle}">
-					<div id="${bottle.productId}" class="bottleContainer">
-						<div>
-							<c:out value="${bottle.productName}" />
-						</div>
-						<div>
-							<c:out value="${bottle.description}" />
-						</div>
-						<div>
-							<c:out value="${bottle.price}" />
-						</div>
-						<div>
-							<c:out value="${bottle.amount}" />
-						</div>
-					</div>
-				</c:forEach>
+				  <c:if test="${not empty bottles}">
+					<c:forEach var="bottle" items="${bottles}">
+						<tr>
+							<td><c:out value="${bottle.productId}" /></td>
+							<td><c:out value="${bottle.categoryId}" /></td>
+							<td><c:out value="${bottle.productName}" /></td>
+							<td><c:out value="${bottle.description}" /></td>
+							<td><c:out value="${bottle.price}" /></td>
+							<td><c:out value="${bottle.amount}" /></td>
+							<td><c:out value="${bottle.date}" /></td>
+						</tr>
+					</c:forEach>
+				  </c:if>
 			  </div>
 		      <ul class="nav navbar-nav navbar-right">
 		        <li><a href="/cbottle/registrationForm"><span class="glyphicon glyphicon-user"></span> Register</a></li>
