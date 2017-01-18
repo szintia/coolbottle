@@ -57,8 +57,5 @@
 		    </div>
 		  </div>
 		</nav>
-	  
-		<div class="container">
-		</div>
 	</jsp:body>
 </t:page>
