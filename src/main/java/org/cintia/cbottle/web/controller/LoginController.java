@@ -32,7 +32,7 @@ public class LoginController {
 	
 	@RequestMapping(value = ROLE_MAPPING, method = RequestMethod.GET)
 	public String roleBaseRedirection(HttpServletRequest request, HttpServletResponse response) {
-		String url = "home";
+		String url = HOME_VIEW;
 		//other case is the "ROLE_USER"
 		if (request.isUserInRole("ROLE_ADMIN")) {
 			url = ADMIN_VIEW;
