@@ -7,7 +7,7 @@ import org.cintia.cbottle.web.domain.Bottle;
 
 public enum BottleQuery implements Query {
 	
-	INSERT("INSERT INTO product (product_id, category_id, product_name, description, price, amount, date) VALUES (?, ?, ?, ?, ?, ?,TO_DATE( ? , 'YYYY-MM-DD'))"),
+	INSERT("INSERT INTO product (product_id, category_id, product_name, description, price, amount, time) VALUES (?, ?, ?, ?, ?, ?,TO_DATE( ? , 'YYYY-MM-DD'))"),
 	SELECT_ALL("SELECT * FROM product"),
 	DELETE("DELETE FROM product WHERE product_id = ?");
 
