@@ -16,7 +16,7 @@
 		
 		<form-login login-page="/login" 
 			default-target-url="/roleIndex" 
-			username-parameter="username"
+			username-parameter="email"
 			password-parameter="password"
 			authentication-failure-url="/login?error" 
 		/>
@@ -27,9 +27,10 @@
 
 	<authentication-manager>
 		<authentication-provider>
-			<user-service>
-			<user name="admin@admin.com" password="admin" authorities="ROLE_ADMIN" />
-		  </user-service>
+			<jdbc-user-service
+				data-source-ref="securityDataSource" 
+				users-by-username-query="SELECT email, password, 1 AS enabled FROM customer WHERE email=?"
+				authorities-by-username-query="SELECT email, role FROM role WHERE email=?" />
 		</authentication-provider>
 	</authentication-manager>
 	
