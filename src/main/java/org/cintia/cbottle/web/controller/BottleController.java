@@ -26,10 +26,10 @@ public class BottleController {
 		mv.addObject("bottles", bottleDAO.getAll());
 		return mv;
 	}
-	
-	@RequestMapping(value = BOTTLES_MAPPING, method = RequestMethod.GET)
-	public String addBottle(@ModelAttribute @Valid Bottle bottle) {
-		bottleDAO.insert(bottle);
-		return "redirect:/" + BOTTLES_VIEW;
-	}
+	//TODO investigate : BeanCreationException
+//	@RequestMapping(value = BOTTLES_MAPPING, method = RequestMethod.GET)
+//	public String addBottle(@ModelAttribute @Valid Bottle bottle) {
+//		bottleDAO.insert(bottle);
+//		return "redirect:/" + BOTTLES_VIEW;
+//	}
 }
