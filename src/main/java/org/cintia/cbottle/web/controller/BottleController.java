@@ -1,8 +1,10 @@
 package org.cintia.cbottle.web.controller;
 
+import java.util.List;
+
 import javax.validation.Valid;
 
-import org.cintia.cbottle.web.database.DataAccess;
+import org.cintia.cbottle.web.database.dao.BottleDAO;
 import org.cintia.cbottle.web.domain.Bottle;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,20 +18,22 @@ public class BottleController {
 	
 	private static final String BOTTLES_MAPPING = "/bottles";
 	private static final String BOTTLES_VIEW = "bottles";
+	private static final String ADD_BOTTLE_MAPPING = "/addBottle";
 	
 	@Autowired
-	DataAccess<Bottle> bottleDAO;
+	BottleDAO bottleDAO;
 	
 	@RequestMapping(value = BOTTLES_MAPPING, method = RequestMethod.GET)
 	public ModelAndView getAll() {
 		ModelAndView mv = new ModelAndView(BOTTLES_VIEW);
-		mv.addObject("bottles", bottleDAO.getAll());
+		List<Bottle> bottles = bottleDAO.getAll();
+		mv.addObject("bottles", bottles);
 		return mv;
 	}
-	//TODO investigate : BeanCreationException
-//	@RequestMapping(value = BOTTLES_MAPPING, method = RequestMethod.GET)
-//	public String addBottle(@ModelAttribute @Valid Bottle bottle) {
-//		bottleDAO.insert(bottle);
-//		return "redirect:/" + BOTTLES_VIEW;
-//	}
+
+	@RequestMapping(value = ADD_BOTTLE_MAPPING, method = RequestMethod.GET)
+	public String addBottle(@ModelAttribute @Valid Bottle bottle) {
+		bottleDAO.insert(bottle);
+		return "redirect:/" + BOTTLES_VIEW;
+	}
 }
