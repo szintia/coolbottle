@@ -21,5 +21,4 @@ public class CustomerRowMapper implements RowMapper<Customer>{
 		customer.setLoyalty(rs.getString("loyalty"));
 		return customer;
 	}
-
 }
