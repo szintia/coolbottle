@@ -18,6 +18,7 @@ public class BottleController {
 	
 	private static final String BOTTLES_MAPPING = "/bottles";
 	private static final String BOTTLES_VIEW = "bottles";
+	private static final String ADD_BOTTLE_MAPPING = "/addBottle";
 	
 	@Autowired
 	BottleDAO bottleDAO;
@@ -30,7 +31,7 @@ public class BottleController {
 		return mv;
 	}
 
-	@RequestMapping(value = BOTTLES_MAPPING, method = RequestMethod.GET)
+	@RequestMapping(value = ADD_BOTTLE_MAPPING, method = RequestMethod.GET)
 	public String addBottle(@ModelAttribute @Valid Bottle bottle) {
 		bottleDAO.insert(bottle);
 		return "redirect:/" + BOTTLES_VIEW;
