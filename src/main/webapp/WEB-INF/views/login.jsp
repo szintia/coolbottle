@@ -7,6 +7,7 @@
 
 <t:page>
 	<jsp:body>
+		<%@ include file="header.jsp" %>
 		<div class="container">
 			<h1>Sign in</h1>
 			<c:if test="${not empty error}">
