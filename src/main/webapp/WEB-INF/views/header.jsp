@@ -1,4 +1,4 @@
-<nav class="navbar navbar-inverse navbar-fixed-top">
+<nav class="navbar navbar-inverse">
 	<div class="container-fluid">
 		<div class="navbar-header">
 			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="/cbottle">
@@ -20,8 +20,8 @@
 				</c:choose>
 		        <li><a href="/cbottle/home">Home</a></li>
 		        <li><a href="/cbottle/bottles">Bottle</a></li>
-		        <li><a href="cbottle/about">About us</a></li>
-		        <li><a href="cbottle/contact">Contact</a></li>
+		        <li><a href="/cbottle/about">About us</a></li>
+		        <li><a href="/cbottle/contact">Contact</a></li>
 	  		</ul>
 	        <ul class="nav navbar-nav navbar-right">
 		        <li><a href="/cbottle/registrationForm"><span class="glyphicon glyphicon-user"></span> Register</a></li>
