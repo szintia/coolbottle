@@ -12,7 +12,7 @@
 <body>
 	<%@include file="/WEB-INF/views/header.jsp" %>
 	<div id="container">
-		<h1>ABOUT US</h1>
+		<h1>CONTACT</h1>
 	</div>
 </body>
 </html>
