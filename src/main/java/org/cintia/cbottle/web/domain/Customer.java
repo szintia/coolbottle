@@ -1,12 +1,13 @@
 package org.cintia.cbottle.web.domain;
 
 import java.math.BigDecimal;
+import java.util.Objects;
 
 public class Customer {
 	
 	private String email;
 	private String name;
-	// TODO hashing password
+	// TODO hash and salt password
 	private String password;
 	private String mobileNumber;
 	private BigDecimal accountBalance;
@@ -72,6 +73,23 @@ public class Customer {
 
 	public void setLoyalty(String loyalty) {
 		this.loyalty = loyalty;
+	}
+	
+	@Override
+	public boolean equals(Object o) {
+		if(o == null) {
+			return false;
+		}
+		if(!(o instanceof Customer)) {
+			return false;
+		}
+		Customer c = (Customer) o;
+		return Objects.equals(email, c.email)
+				&& Objects.equals(name, c.name)
+				&& Objects.equals(loyalty, c.loyalty)
+				&& Objects.equals(mobileNumber, c.mobileNumber)
+				&& Objects.equals(password, c.password)
+				&& Objects.equals(accountBalance, c.accountBalance);
 	}
 
 }

@@ -54,7 +54,7 @@ public class CustomerController {
 	}
 	
 	@RequestMapping(value = DELETE_CUSTOMER_MAPPING, method = RequestMethod.GET)
-	public String getDeleteCustomer(@RequestParam(value = "email") String email) {
+	public String deleteCustomer(@RequestParam(value = "email") String email) {
 		customerDAO.delete(email);
 		return CUSTOMER_VIEW;
 	}
