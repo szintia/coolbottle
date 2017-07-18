@@ -27,12 +27,14 @@
 
 	<authentication-manager>
 		<authentication-provider>
-			<jdbc-user-service
-				data-source-ref="securityDataSource" 
-				users-by-username-query="SELECT email, password, 1 AS enabled FROM customer WHERE email=?"
-				authorities-by-username-query="SELECT email, role FROM role WHERE email=?" />
+			<password-encoder ref="bcryptEncoder"/>
+			<jdbc-user-service data-source-ref="customUserDetailsService" users-by-username-query="SELECT email, password, 1 AS enabled FROM customer WHERE email=?"
+				authorities-by-username-query="SELECT email, role FROM role WHERE email=?" />	
 		</authentication-provider>
 	</authentication-manager>
+	
+	<beans:bean id="bcryptEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder" />
+	<beans:bean id="customUserDetailsService" class="com.websystique.springsecurity.service.CustomUserDetailsService" />
 	
 	<beans:bean id="securityDataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<beans:property name="driverClassName" value="oracle.jdbc.pool.OracleConnectionPoolDataSource" />
